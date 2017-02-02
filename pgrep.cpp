@@ -4,7 +4,6 @@
 #include <tchar.h>
 #include <psapi.h>
 #include <atlstr.h>
-using namespace std;
 
 // To ensure correct resolution of symbols, add Psapi.lib to TARGETLIBS
 // and compile with -DPSAPI_VERSION=1
