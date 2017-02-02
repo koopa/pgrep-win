@@ -1,6 +1,5 @@
 #include <windows.h>
 #include <stdio.h>
-#include <string>
 #include <tchar.h>
 #include <psapi.h>
 #include <atlstr.h>
