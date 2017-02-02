@@ -16,8 +16,7 @@ void PrintIDIfProcContainsTargetName(DWORD processID, TCHAR *target){
 		if (EnumProcessModules(hProcess, &hMod, sizeof(hMod), &cbNeeded))
 			GetModuleBaseName(hProcess, hMod, szProcessName, sizeof(szProcessName) / sizeof(TCHAR));
 	}
-//	_tprintf(TEXT("checking %s -> %d\n"), szProcessName, _tcsstr(szProcessName, target));
-	if (_tcsstr(szProcessName, target) != NULL) {
+	if (NULL != _tcsstr(szProcessName, target)) {
 		_tprintf(TEXT("%u\n"), processID);
 	}
 
@@ -28,7 +27,7 @@ int main(int argc, char *argv[]){
 	if (argc < 2)
 		return 2;
 
-	TCHAR target[4096];
+	TCHAR target[MAX_PATH];
 	USES_CONVERSION; // -> A2T
 	_tcscpy_s(target, A2T(argv[1]));
 	DWORD aProcesses[1024], cbNeeded, cProcesses;
